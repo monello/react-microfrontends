@@ -1,4 +1,4 @@
-import * as faker from 'faker';
+import faker from 'faker';
 
 let products = '';
 
@@ -7,4 +7,4 @@ for (let i = 0; i < 3; i++) {
     products += `<div>${name}</div>`;
 }
 
-document.querySelector('#dev-products').innerHTML = products;
+document.querySelector('#dev-products')!.innerHTML = products;
