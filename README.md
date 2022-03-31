@@ -45,3 +45,6 @@ Unfortunately I know from experience that I sometimes I commit bugs, so I will, 
 If I do find the mistake before the next commit, I will usually do a small bug-fix commit to fix shit.
 
 I may also use the inline commit comments to highlight very important learning points, so it's not always neccessary to `End`-key down to the botom of the commit so see the notes.
+
+## Start Commit
+[:octocat:](https://github.com/monello/react-microfrontends/commit/aa59b67299951397ec2f5b50ccb371c70c0bbce3)
