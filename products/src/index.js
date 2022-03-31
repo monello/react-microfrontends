@@ -6,4 +6,4 @@ for (var i = 0; i < 3; i++) {
     var name_1 = faker.commerce.productName();
     products += "<div>".concat(name_1, "</div>");
 }
-console.log(products);
+document.querySelector('#dev-products').innerHTML = products;
