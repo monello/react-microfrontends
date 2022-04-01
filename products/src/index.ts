@@ -1,10 +1,5 @@
-import faker from 'faker';
-
-let products = '';
-
-for (let i = 0; i < 3; i++) {
-    const name = faker.commerce.productName();
-    products += `<div>${name}</div>`;
-}
-
-document.querySelector('#dev-products')!.innerHTML = products;
+import('./bootstrap').then(_ => {
+    console.log("[Products App] Loaded (index.js)");
+}).catch((reason) => {
+    console.error(`[Products App]: ${reason}`);
+});
