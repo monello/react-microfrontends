@@ -13,6 +13,7 @@ module.exports = {
             library: { type: 'var', name: 'container' },
             remotes: {
                 products: 'products',
+                cart: 'cart',
             },
         }),
         new HtmlWebpackPlugin({
