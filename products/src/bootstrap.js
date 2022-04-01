@@ -11,13 +11,13 @@ const mount = (el) => {
         const name = faker_1.default.commerce.productName();
         products += `<div>${name}</div>`;
     }
-    document.querySelector(el).innerHTML = products;
+    el.innerHTML = products;
 };
 exports.mount = mount;
 if (process.env.NODE_ENV === 'development') {
     const isStandAlone = !!document.querySelector('body[data-app-name="products"]');
     if (isStandAlone) {
-        mount('#dev-products');
+        mount(document.querySelector('#dev-products'));
     }
 }
 //# sourceMappingURL=bootstrap.js.map

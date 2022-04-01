@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-const mount = (el: string) => {
+const mount = (el: HTMLElement) => {
     let products = '';
 
     for (let i = 0; i < 3; i++) {
@@ -8,7 +8,7 @@ const mount = (el: string) => {
         products += `<div>${name}</div>`;
     }
 
-    document.querySelector(el)!.innerHTML = products;
+    el.innerHTML = products;
 };
 
 // Check if the app is running in development mode
@@ -16,7 +16,7 @@ const mount = (el: string) => {
 if (process.env.NODE_ENV === 'development') {
     const isStandAlone = !!document.querySelector('body[data-app-name="products"]');
     if (isStandAlone) {
-        mount('#dev-products');
+        mount(document.querySelector('#dev-products')!);
     }
 }
 
