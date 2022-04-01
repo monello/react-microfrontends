@@ -18,5 +18,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Promise.resolve().then(() => __importStar(require('./bootstrap')));
+Promise.resolve().then(() => __importStar(require('./bootstrap'))).then(_ => {
+    console.log('[Cart App] Loaded (index.js)');
+}).catch(reason => {
+    console.error(`[Cart App]: ${reason}`);
+});
 //# sourceMappingURL=index.js.map

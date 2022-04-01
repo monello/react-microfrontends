@@ -19,8 +19,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Promise.resolve().then(function () { return __importStar(require('./bootstrap')); }).then(function (_) {
-    console.log("Hello From Container (index.js)");
+    console.log("[Container App] Loaded (index.js)");
 }).catch(function (reason) {
-    console.error("Reason: ".concat(reason));
+    console.error("[Container App]: ".concat(reason));
 });
 //# sourceMappingURL=index.js.map

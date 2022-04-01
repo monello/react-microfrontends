@@ -1,5 +1,5 @@
 import('./bootstrap').then(_ => {
-    console.log("Hello From Container (index.js)");
+    console.log("[Container App] Loaded (index.js)");
 }).catch((reason) => {
-    console.error(`Reason: ${reason}`);
+    console.error(`[Container App]: ${reason}`);
 });
