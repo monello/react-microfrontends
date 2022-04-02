@@ -46,5 +46,8 @@ If I do find the mistake before the next commit, I will usually do a small bug-f
 
 I may also use the inline commit comments to highlight very important learning points, so it's not always neccessary to `End`-key down to the botom of the commit so see the notes.
 
-## Start Commit
-[:octocat:](https://github.com/monello/react-microfrontends/commit/aa59b67299951397ec2f5b50ccb371c70c0bbce3)
+## Branches
+
+-   main - The clean repo to branch each course project from
+-   microfrontends-basic - Hosts the project used in sections 1 to 3 of the course
+-   linked-multiple-apps - Hosts the project started in section 4 of the course
