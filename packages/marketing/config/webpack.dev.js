@@ -6,6 +6,8 @@
 const { merge } = require('webpack-merge');
 // This will generate out App's entry HTML file and inject a bunch of variable and most importantly the bundled JS, CSS etc. files (assets) required for the APP
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+// Import the Module Federation plugin here and not in the common config, because we will have slighly different set-up for Dev vs Prod
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 // Pull in the Common Webpack config, in order to merge it with this Development config
 const commonConfig = require('./webpack.common');
@@ -22,6 +24,13 @@ const devConfig = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './public/index.html'
+        }),
+        new ModuleFederationPlugin({
+            name: 'marketing',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './MarketingApp': './src/bootstrap'
+            }
         })
     ]
 };
