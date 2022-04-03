@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import App from './App';
+
 const mount = el => {
     ReactDOM.render(
-        <h1>Hi from React</h1>,     // JSX to render
-        el                          // Target element to render the JSX in
+        <App />,     // JSX to render
+        el          // Target element to render the JSX in
     );
 };
 
