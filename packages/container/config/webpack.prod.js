@@ -9,6 +9,8 @@ const packageJson = require('../package.json');
 const commonConfig = require('./webpack.common');
 
 // This environment variable will be set up when the build our Production deployment pipeline
+// - So this pipeline is located in '.github/workflows/container.yml`
+// - The PRODUCTION_DOMAIN Env-var is listed in there under the `npm run build` step
 const domain = process.env.PRODUCTION_DOMAIN;
 
 const prodConfig = {
@@ -24,7 +26,7 @@ const prodConfig = {
                 // Note that here we now use a string-litaral (interpolation) to pull in the PRODUCTION domain
                 // The "/marketing" folder here is an ASSUMPTION at this stage and might have to be tweaked when the deployment pipeline set-up is complete
                 // The reason we need a folder is that we will be deploying all our apps (3 remotes and a container) to the same domain for the course purposes
-                marketing: `marketing@${domain}/marketing/remoteEntry.js`
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`
             },
             shared: packageJson.dependencies
         })
