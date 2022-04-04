@@ -2,6 +2,10 @@
  * Webpack Config common to both Development and Production
  * This will be merged with either `webpack.dev.js` or `webpack.prod.js` depending on whether we are building for Development or Production respectively
  */
+
+// Moved this to common config as it will be needed in both DEV and PROD
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     module: {
         rules: [
@@ -22,5 +26,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './public/index.html'
+        }),
+    ]
 };

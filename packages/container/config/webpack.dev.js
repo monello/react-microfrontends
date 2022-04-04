@@ -4,8 +4,6 @@
 
 // Use the webpack merge() function that will allow us to merge together multiple webpack configs.
 const { merge } = require('webpack-merge');
-// This will generate out App's entry HTML file and inject a bunch of variable and most importantly the bundled JS, CSS etc. files (assets) required for the APP
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 // Import the Module Federation plugin here and not in the common config, because we will have slighly different set-up for Dev vs Prod
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 // Import package.json so we can get access to the dependencies
@@ -24,9 +22,6 @@ const devConfig = {
         }
     },
     plugins: [
-        new HTMLWebpackPlugin({
-            template: './public/index.html'
-        }),
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
