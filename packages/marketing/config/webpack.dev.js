@@ -8,6 +8,8 @@ const { merge } = require('webpack-merge');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 // Import the Module Federation plugin here and not in the common config, because we will have slighly different set-up for Dev vs Prod
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+// Import package.json so we can get access to the dependencies
+const packageJson = require('../package.json');
 
 // Pull in the Common Webpack config, in order to merge it with this Development config
 const commonConfig = require('./webpack.common');
@@ -31,7 +33,8 @@ const devConfig = {
             exposes: {
                 './MarketingApp': './src/bootstrap'
             },
-            shared: ['react', 'react-dom']
+            // The trick here is that "shared" can also take an object that specifies version numbers
+            shared: packageJson.dependencies
         })
     ]
 };
