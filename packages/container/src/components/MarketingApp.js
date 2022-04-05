@@ -11,7 +11,11 @@ const MarketingApp = () => {
         // - inside the Marketing app, mount injects the JSX into a tagtet element that is passed in as an argument
         // - seeing as we are passing the dif below (via ref) to it, that div becomes the element mount will render the Marketing app in to
         // Seeing as we are now inside a React functional component that the turns this div as JSX, we in effect will be returning the Marketing app from this component
-        mount(ref.current);
+        mount(ref.current, {
+            onNavigate: () => {
+                console.log('The container noticed navigation in Marketing');
+            }
+        });
     });
 
     return (
