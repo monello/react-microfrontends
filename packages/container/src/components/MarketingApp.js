@@ -32,7 +32,8 @@ const MarketingApp = () => {
         // - inside the Marketing app, mount injects the JSX into a tagtet element that is passed in as an argument
         // - seeing as we are passing the dif below (via ref) to it, that div becomes the element mount will render the Marketing app in to
         // Seeing as we are now inside a React functional component that the turns this div as JSX, we in effect will be returning the Marketing app from this component
-        mount(ref.current, {
+        // We now get back an object from the mount() function (Marketing app) that contains an `onNavigate()` function property, we destructor that out
+        const { onParentNavigate } = mount(ref.current, {
             // Here we use object destrcturing & argument aliassing to get the returned `pathname` and rename it to `nextPathname`
             onNavigate: ({ pathname: nextPathname }) => {
                 // Use object-destructuring to get the current path from the history object
@@ -46,7 +47,11 @@ const MarketingApp = () => {
                 }
             }
         });
-    });
+
+        // Now we can use the history object in this Containet app to listen for changes in out Browser History, we call perform some action...
+        // - in this case call the `onParentNavigate()` method we received form the Child app's `mount()` method
+        history.listen(onParentNavigate);
+    }, []);
 
     return (
         <div ref={ref} />

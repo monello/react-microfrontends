@@ -15,6 +15,20 @@ const mount = (el, { onNavigate }) => {
         <App history={history} />,     // JSX to render
         el          // Target element to render the JSX in
     );
+
+    // We need a way for the Container app to communicate back down to the Child application in a Generic, framework-agnostic way
+    // - We return an object that can become a "handle" for the marketing app inside the Container app in a simple JS object format
+    // - So no React specific tricks here, nice and generic JS object
+    // - This object can therefore containe ANYTHING we want it to, and for now that is a function type property to inform the child app
+    //      when relevant navigation occured inthe container app, so that can be synced down to the "Memory History" used here
+    return {
+        onParentNavigate({ pathname: nextPathname }) {
+            const { pathname } = history.location;
+            if (pathname !== nextPathname) {
+                history.push(nextPathname);
+            }
+        }
+    };
 };
 
 if (process.env.NODE_ENV === 'development') {
