@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createMemoryHistory } from 'history';
+import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
-const mount = (el, { onNavigate }) => {
-    const history = createMemoryHistory();
+const mount = (el, { onNavigate, defaultHistory }) => {
+    const history = defaultHistory || createMemoryHistory();
 
     // Make sure that the onNavigate callback exists (we don't send it in when we run this app in isolation)
     if (onNavigate) {
@@ -35,7 +35,10 @@ if (process.env.NODE_ENV === 'development') {
     const isStandAlone = !!document.querySelector('body[data-app-name="markering"]');
     if (isStandAlone) {
         // Adding a fix for the expected 2nd argument we added for the onNavigate callback sent by the Container app, but nor needed in Stand-alone mode
-        mount(document.getElementById("app"), {});
+        mount(
+            document.getElementById("app"),
+            { defaultHistory: createBrowserHistory() }
+        );
     }
 }
 
