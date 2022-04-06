@@ -34,6 +34,7 @@ const MarketingApp = () => {
         // Seeing as we are now inside a React functional component that the turns this div as JSX, we in effect will be returning the Marketing app from this component
         // We now get back an object from the mount() function (Marketing app) that contains an `onNavigate()` function property, we destructor that out
         const { onParentNavigate } = mount(ref.current, {
+            initialPath: history.location.pathname,
             // Here we use object destrcturing & argument aliassing to get the returned `pathname` and rename it to `nextPathname`
             onNavigate: ({ pathname: nextPathname }) => {
                 // Use object-destructuring to get the current path from the history object
