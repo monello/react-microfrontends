@@ -26,7 +26,8 @@ const prodConfig = {
                 // Note that here we now use a string-litaral (interpolation) to pull in the PRODUCTION domain
                 // The "/marketing" folder here is an ASSUMPTION at this stage and might have to be tweaked when the deployment pipeline set-up is complete
                 // The reason we need a folder is that we will be deploying all our apps (3 remotes and a container) to the same domain for the course purposes
-                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`
+                marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+                auth: `auth@${domain}/auth/latest/remoteEntry.js`
             },
             shared: packageJson.dependencies
         })
