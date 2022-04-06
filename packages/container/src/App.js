@@ -45,7 +45,7 @@ const App = () => {
                                 <AuthAppLazy onSignIn={() => setIsSignedIn(true)} />
                             </Route>
                             <Route path='/dashboard'>
-                                {!isSignedIn && <Redirect to="/" />}
+                                {!isSignedIn && <Redirect to="/auth/signin" />}
                                 <DashboardAppLazy />
                             </Route>
                             <Route path='/' component={MarketingAppLazy} />
