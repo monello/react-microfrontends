@@ -4,8 +4,11 @@ import { StylesProvider, createGenerateClassName } from '@material-ui/core/style
 
 import Header from './components/Header';
 
-const MarketingAppLazy = lazy(() => { import('./components/MarketingApp'); });
-const AuthAppLazy = lazy(() => { import('./components/AuthApp'); });
+// const MarketingAppLazy = lazy(() => { return import('./components/MarketingApp'); });
+// const AuthAppLazy = lazy(() => { return import('./components/AuthApp'); });
+
+const MarketingAppLazy = lazy(() => import('./components/MarketingApp'));
+const AuthAppLazy = lazy(() => import('./components/AuthApp'));
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'co'
