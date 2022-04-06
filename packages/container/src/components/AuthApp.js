@@ -14,6 +14,9 @@ const AuthApp = () => {
                 if (pathname !== nextPathname) {
                     history.push(nextPathname);
                 }
+            },
+            onSignIn: () => {
+                console.log('User Signed In');
             }
         });
 
