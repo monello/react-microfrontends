@@ -15,14 +15,14 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/auth/latest/'
+        publicPath: '/dashboard/latest/'
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'auth',
+            name: 'dashboard',
             filename: 'remoteEntry.js',
             exposes: {
-                './AuthApp': './src/bootstrap'
+                './DashboardApp': './src/bootstrap'
             },
             // The trick here is that "shared" can also take an object that specifies version numbers
             shared: packageJson.dependencies
