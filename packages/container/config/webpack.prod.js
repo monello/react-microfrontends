@@ -27,7 +27,8 @@ const prodConfig = {
                 // The "/marketing" folder here is an ASSUMPTION at this stage and might have to be tweaked when the deployment pipeline set-up is complete
                 // The reason we need a folder is that we will be deploying all our apps (3 remotes and a container) to the same domain for the course purposes
                 marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
-                auth: `auth@${domain}/auth/latest/remoteEntry.js`
+                auth: `auth@${domain}/auth/latest/remoteEntry.js`,
+                dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`
             },
             shared: packageJson.dependencies
         })
